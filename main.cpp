@@ -11,7 +11,7 @@ antsol
 const double G = 9.81;
 
 // time step
-const double DELTA = 0.0001;
+const double DELTA = 0.01;
 
 // to save results and test class
 std::ofstream file;
@@ -20,7 +20,7 @@ class Bullet {
 
 private:
     // factor of air resistance
-    double k = 0.001;
+    double k = 0.4;
     // coordinates of movement
     double x, y, v_x, v_y, a_x, a_y;
     // initial conditions
