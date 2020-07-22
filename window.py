@@ -1,6 +1,6 @@
 from tkinter import *
 import os
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 
 root = Tk()
@@ -38,5 +38,10 @@ for line in file:
     y.append(float(temp[1]))
 file.close()
 
-plot.plot(x, y)
-plot.show()
+plt.plot(x, y)
+xmin, xmax = plt.xlim()
+ymin, ymax = plt.ylim()
+xymax = max(xmax, ymax)
+plt.xlim(xmin, xymax)
+plt.ylim(ymin, xymax)
+plt.show()
