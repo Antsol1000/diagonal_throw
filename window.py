@@ -4,16 +4,25 @@ import matplotlib.pyplot as plt
 
 
 root = Tk()
+root.title("diagonal throw")
 
+label1 = Label(root, text="Please enter the values of parameters.")
+label1.grid(row=0, column=1)
+
+label_angle = Label(root, text="Angle of throw in degrees:")
+label_angle.grid(row=1, column=0)
 angle = Entry(root)
+angle.grid(row=1, column=1)
+
+label_velocity = Label(root, text="Velocity of throw in m/s:")
+label_velocity.grid(row=2, column=0)
 velocity = Entry(root)
+velocity.grid(row=2, column=1)
+
+label_mass = Label(root, text="Mass of bullet in kg:")
+label_mass.grid(row=3, column=0)
 mass = Entry(root)
-angle.grid(row=0, column=0)
-velocity.grid(row=0, column=1)
-mass.grid(row=0, column=2)
-angle.insert(0, "angle")
-velocity.insert(0, "velocity")
-mass.insert(0, "mass")
+mass.grid(row=3, column=1)
 
 
 def my_click():
@@ -23,11 +32,14 @@ def my_click():
 
 
 my_button = Button(root, text="ENTER", command=my_click)
-my_button.grid(row=1, column=1)
+my_button.grid(row=4, column=1)
 
 root.mainloop()
 
-os.system("C:\\Users\\antso\\Desktop\\diagonal_throw\\main.exe " + param)
+os.system("main.exe " + param)
+
+while open("wyniki.txt") == -1:
+    1 == 1
 
 x = []
 y = []
@@ -45,3 +57,5 @@ xymax = max(xmax, ymax)
 plt.xlim(xmin, xymax)
 plt.ylim(ymin, xymax)
 plt.show()
+
+os.system("del wyniki.txt")
