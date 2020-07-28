@@ -2,10 +2,11 @@ from tkinter import *
 import bullet as blt
 import matplotlib.pyplot as plt
 
-
+# created tkinter window
 root = Tk()
 root.title("diagonal throw")
 
+# insert labels where params are entered
 label1 = Label(root, text="Please enter the values of parameters.")
 label1.grid(row=0, column=1)
 
@@ -29,10 +30,15 @@ label_mass.grid(row=4, column=0)
 mass = Entry(root)
 mass.grid(row=4, column=1)
 
+# parameters
 radius_value, angle_value, velocity_value, mass_value = 0, 0, 0, 0
 
 
 def my_click():
+	"""
+	function which is used when one clicks the button
+	it takes the params from entries
+	"""
     global radius_value, angle_value, velocity_value, mass_value
     radius_value = float(radius.get())
     angle_value = float(angle.get())
@@ -47,16 +53,21 @@ my_button.grid(row=5, column=1)
 root.mainloop()
 
 
+# created instance of Bullet class with params
 bullet = blt.Bullet(radius_value, mass_value, angle_value, velocity_value)
+# list with coordinates of throw
 x, y = [], []
 
 
+# initializing the throw and taking the coordinates
 bullet.step()
 while bullet.get_y() > 0:
     x.append(bullet.get_x())
     y.append(bullet.get_y())
     bullet.step()
 
+# creating the plot
+# making axes equal
 plt.plot(x, y)
 x_min, x_max = plt.xlim()
 y_min, y_max = plt.ylim()
