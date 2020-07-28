@@ -35,10 +35,10 @@ radius_value, angle_value, velocity_value, mass_value = 0, 0, 0, 0
 
 
 def my_click():
-	"""
-	function which is used when one clicks the button
-	it takes the params from entries
-	"""
+    """
+    function which is used when one clicks the button
+    it takes the params from entries
+    """
     global radius_value, angle_value, velocity_value, mass_value
     radius_value = float(radius.get())
     angle_value = float(angle.get())
